@@ -4,63 +4,56 @@ from random import randrange
 print "\nHi Pavel! What are you thinking about?\n"
 print "1. A big cup of bulgarian yogurt\n2. A new TV series to watch\n3. A lovely italian girl called Milena\n"
 
-thought=raw_input ("> ")
+tgt=raw_input ("> ")
 ans='no'
-ans_yes=("Don't be hurry","Take your time","Are You sure?")
+ansYes=("Don't be hurry","Take your time","Are You sure?")
 
-while thought=="1" or thought=="2":
+while tgt=="1" or tgt=="2":
 	q=randint(3,6)
-	if thought=="1":
+	if tgt=="1":
 		print "Come on Pavel! You can resist.\n"
 	
 	else:
 		print "Someone should think you're becoming so boring...\n"
 	
-	i1=0
-	i2=0
+	i=0
 	
-	print "Are you still thinking about it?"
+	print "Are you still thinking about it? Ans 'yes' or 'no'"
 	ans=raw_input ("ans> ")
+	ans=ans.lower()
 	
-	while ans!="no":
+	if ans!="no" and ans!="yes":
+		print "ERROR!\n\n"
+	
+	while ans=="yes":
 		#print q   #Verifica*
-		random_index_ans=randrange(0,len(ans_yes))
-		
-		if thought=="1":
-			i1=i1+1
-			if i1==q:
-				print ans_yes[random_index_ans]
-				#print ("indice: "), i1    #Verifica*
-				i1=0
-				#print i1	#Verifica*
-				ans=raw_input ("ans> ")
-			else:
-				print "\nTry again!"
-				#print i1	#Verifica*
-				ans=raw_input ("ans> ")
-				
+		randomIndexAns=randrange(0,len(ansYes))
+		i=i+1
+		if i==q:
+			print ansYes[randomIndexAns]
+			#print ("indice: "), i    #Verifica*
+			i=0
+			#print i	#Verifica*
+			ans=raw_input ("ans> ")
+			ans=ans.lower()
 		else:
-			i2=i2+1
-			if i2==q:
-				print ans_yes[random_index_ans]
-				#print ("indice: "), i1    #Verifica*
-				i2=0
-				#print i2	#Verifica*
-				ans=raw_input ("ans> ")
-			else:
-				print "\nTry again!"
-				#print i1	#Verifica*
-				ans=raw_input ("ans> ")
+			print "\nTry again!"
+			#print i	#Verifica*
+			ans=raw_input ("ans> ")
+			ans=ans.lower()
+				
 				
 		
 	if ans=="no":
-		i1=0
-		i2=0
+		i=0
 		print "\n 1 2 3?"
-		thought=raw_input ("> ")
+		tgt=raw_input ("> ")
 	
-if thought=="3":
-	print "Okay, now you're good. You won a kiss.\n"
+if tgt=="3":
+	print "Okay, now you're good. You won a kiss.\n\n"
+	
+if tgt!="1" and tgt!="2" and tgt!="3":
+	print "ERROR!\n\n"
 
 
 
